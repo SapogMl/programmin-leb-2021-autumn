@@ -1,9 +1,3 @@
-/*
-Деструктор и конструктор, насколько я понимаю, пишутся просто по определению.
-А вот про оператор присваивания непонятно: он чем-то должен отличаться от
-конструктор или нет?
-*/
-
 #include<iostream>
 using namespace std;
 
@@ -33,7 +27,7 @@ struct List
 	Node* head;
 	List() { head = nullptr; }
 
-	~List() { cout << "del" << '\n'; del(); }
+	~List() { del(); }
 	List(const List& l) { copy(l.head); }
 
 	List& operator= (const List& l) {
