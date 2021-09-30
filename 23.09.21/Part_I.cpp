@@ -65,7 +65,7 @@ struct DList
 		cout << endl;
 	}
 
-	// ?
+	// OK
 	void add_last(int d)
 	{
 		DNode* tmp;
@@ -74,7 +74,7 @@ struct DList
 		tail = tmp;
 	}
 
-	// ?
+	// OK
 	void add_after_first(int d)
 	{
 		DNode* tmp;
@@ -83,7 +83,7 @@ struct DList
 		head->next = tmp;
 	}
 
-	// ?
+	// OK
 	void del_last()
 	{
 		DNode* t = tail;
@@ -92,10 +92,10 @@ struct DList
 		delete t;
 	}
 
-	// ?
+	// OK
 	void del_second()
 	{
-		if (head == tail) // если узлов в списке < 2
+		if (head == tail) // ГҐГ±Г«ГЁ ГіГ§Г«Г®Гў Гў Г±ГЇГЁГ±ГЄГҐ < 2
 		{
 			cout << "ERROR: list too short" << '\n';
 		}
@@ -103,7 +103,7 @@ struct DList
 		{
 			DNode* t = head->next;
 
-			if (t == tail) // если узлов 2
+			if (t == tail) // ГҐГ±Г«ГЁ ГіГ§Г«Г®Гў 2
 			{
 				del_last();
 			}
