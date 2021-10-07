@@ -11,14 +11,12 @@ struct Node
 
 Node* copy(Node* x)
 {
-	Node* tmp;
-	return x;
-
-	if (x != nullptr)
+	Node* tmp = new Node(x->data, tmp);
+	if (x->next != nullptr)
 	{
-		tmp = new Node(x->data, tmp);
-		return x->next;
+		return copy(x->next);
 	}
+	cout << tmp->data << '\n';
 	return tmp;
 }
 
@@ -27,14 +25,24 @@ struct List
 	Node* head;
 	List() { head = nullptr; }
 
-	~List() { del(); }
-	List(const List& l) { copy(l.head); }
-
-	List& operator= (const List& l) {
-		// ?
+	~List()
+	{
+		del();
+	}
+	List(const List& l)
+	{
+		copy(l.head);
 	}
 
-	void add_first(int d) {
+	List& operator= (const List& l)
+	{
+		del(); // удалили b
+		head = copy(l.head);
+		return *this;
+	}
+
+	void add_first(int d)
+	{
 		Node* tmp;
 		tmp = new Node(d, head);
 		head = tmp;
@@ -76,6 +84,20 @@ int main()
 	a.add_first(6);
 
 	a.print();
+
+	List b;
+	b.add_first(1);
+	b.add_first(2);
+
+	b.print();
+
+	List c;
+	c.head = copy(a.head);
+	c.print();
+
+	/* b.operator=(a);
+	a.print();
+	b.print(); */
 
 
 	return EXIT_SUCCESS;
